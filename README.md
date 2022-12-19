@@ -11,10 +11,5 @@ You will need to a Python environment for the final activity only e.g create and
 
 ## Activities
 
-[Introduction to HTML](/activities/html_intro.md)
+The activities are accessed from [activities/activities.md](/activities/activities.md)
 
-[Introduction to CSS](/activities/css_intro.md)
-
-[Introduction to responsive design](/activities/responsive_intro.md)
-
-[Create a basic Flask web app](/activities/flask_basic.md)
