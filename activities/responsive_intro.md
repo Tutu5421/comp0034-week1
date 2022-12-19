@@ -117,20 +117,15 @@ To create a simple page using Bootstrap:
 - Include the `<meta>` tag in the `<head>` to set the page width to the device
   `<meta name="viewport" content="width=device-width, initial-scale=1">`
 - Wrap the page contents in a container. There are two container classes to choose from:
-    - `.container` class provides a responsive fixed width container
-    - `.container-fluid` class provides a full width container, spanning the entire width of the viewport e.g.
+  - `.container` class provides a responsive fixed width container
+  - `.container-fluid` class provides a full width container, spanning the entire width of the viewport e.g.
+
       ```html
           <div class="container-fluid">
           <h1>Hello, world!</h1></div>```
 
-Bootstrap can be used with a grid system, many of the examples use this. Bootstrap is no longer restricted to 12
-columns. The grid system has five CSS classes (v4):
-
-- `.col-` (extra small devices - screen width less than 576px)
-- `.col-sm-` (small devices - screen width equal to or greater than 576px)
-- `.col-md-` (medium devices - screen width equal to or greater than 768px)
-- `.col-lg-` (large devices - screen width equal to or greater than 992px)
-- `.col-xl-` (xlarge devices - screen width equal to or greater than 1200px)
+Bootstrap can be used with a grid system. Bootstrap is no longer restricted to 12
+columns. The grid system is not covered in the teaching materials for COMP0034 though you are welcome to use it in your coursework.
 
 There are lots of freely available templates and examples that use Bootstrap.
 See [Bootstrap documentation](http://getbootstrap.com/docs).
@@ -146,9 +141,11 @@ time, there are alternatives to Bootstrap you can explore such as:
 - [ZURB foundation](https://foundation.zurb.com/)
 
 ## COMP0034 Coursework
+
 **For your coursework it is recommended that you use a third party CSS** (check it has an open source license, ie that you
 are allowed to use it). CSS is not considered in the marking scheme so there is no value in writing your own.
 
-## Other links
+## Links
+
 - [w3schools responsive design](https://www.w3schools.com/css/css_rwd_intro.asp)
 - [Mozilla responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)

@@ -1,5 +1,7 @@
 # Introduction to JavaScript
 
+You will not write or edit any JavaScript in COMP0034. This activity is included for those who wish to understand a little about how it works.
+
 ## What is JavaScript and what is it used for?
 
 JavaScript is a scripting language used widely in web pages. Mozilla defines it as "JavaScript is a scripting or
@@ -79,6 +81,7 @@ extension `.js`.
 ```
 
 `js_intro.js`
+
 ```javascript
 function createParagraph() {
     let head_ext = document.querySelector('#external-js-heading')
@@ -113,11 +116,13 @@ will execute.
 The following example would call the onclick event when a button is clicked:
 
 HTML
+
 ```html
 <button id="b2">Click me!</button>
 ```
 
 JavaScript
+
 ```javascript
 document.querySelector("#b2").addEventListener("click", function () {
         alert("You clicked the button!");
@@ -142,6 +147,7 @@ JavaScript code can access these objects to:
 - change styles e.g. make a paragraph red
 
 JavaScript does this by selecting elements using the element type, a class or its id.
+
 ```javascript
 // Get the element in the document with id="example":
 document.querySelector("#example");
@@ -154,12 +160,14 @@ var x = document.querySelectorAll("p");
 ```
 
 You can then make changes to the element, or elements, selected:
+
 ```javascript
 // Set the background color of the first <p> element
 x[0].style.backgroundColor = "red";  
 // Get the element with the id demo and set the text to 'Hello World'
 document.querySelector("#demo").innerHTML = "Hello World!";
 ```
+
 ## Further information
 
 [Mozilla JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)

@@ -1,8 +1,16 @@
 # Introduction to HTML
 
-## Basic HTML page structure
+## HTML tag basics
 
-HTML documents start with a document type declaration to tell the browser the version of HTML to expect
+The basic tag structure is `<start_tag> some content </end_tag>`. This set of opening tag + content + closing tag is referred to as an HTML element.
+
+A small number of elements only have an opening tag e.g. `<img>`, `<br>`, `<hr>`. There is a list of these [void elements here](https://developer.mozilla.org/en-US/docs/Glossary/Void_element).
+
+Elements can also have attributes that give additional information. In this course you will mostly use id e.g. `id="some-name"` and class e.g. `class="some-class"`. `id` is used to locate a particular element on a webpage, and `class` is used in adding styles to elements (more on these in later sections).
+
+## Basic HTML page structure and tags
+
+HTML documents start with a document type declaration `<!DOCTYPE html>`. This is required at the start of the document.
 
 The HTML document itself begins with `<html>` and ends with `</html>`
 
@@ -11,20 +19,18 @@ i.e. info about the page.
 
 The part of the HTML document that is visible in the browser is between `<body>` and `</body>`.
 
-The basic tag structure is `<start_tag> some content </end_tag>`.
-
 The page structure looks like the following (also
-see [/html_css_intro/html_intro_basic_structure.html](/html_css_intro/html_intro_basic_structure.html)):
+see [/html_css_intro/html_intro_basic_structure.html](/html_css/html_intro_basic_structure.html)):
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>COMP0034 Introduction to HTML - Basic page structure</title>
 </head>
 <body>
-<p>Here is some content.</p>
+<p>Here is some text on a page.</p>
 </body>
 </html>
 ```
@@ -34,11 +40,11 @@ see [/html_css_intro/html_intro_basic_structure.html](/html_css_intro/html_intro
 You can typically see the HTML for a page in a browser by right-clicking on a web page, and selecting ‘View Page
 Source’ (or similar, varies by browser).
 
-You can view an html file on your computer in a browser by simply opening it from within the browser.
+You can view an html file on your computer in a browser by simply opening it from within a browser.
 
-If your IDE there should be a run function, usually a triangular play button symbol.
+In your IDE there may be a 'run' (PyCharm) or 'preview' (VSCode) function that will let you view the generated page. How this is done varies by IDE. Read the documentation for your IDE.
 
-## Some commonly used tags
+## Some commonly used HTML tags
 
 These are in the file [/html_css_intro/html_intro.html](/html_css_intro/html_intro.html)
 
@@ -114,9 +120,9 @@ The default method when submitting form data is GET, POST should be used for per
 
 ## HTML 5 layout
 
-HTML5 offers semantic elements to define different parts of a web page
+HTML5 offers semantic elements to define different parts of a web page. You do not have to use these.
 
-<img src="../html_css_intro/images/html5layout.png" alt="HTML 5 layout" width="25%">
+<img src="../html_css/images/html5layout.png" alt="HTML 5 layout" width="30%">
 
 `<header>` Defines a header for a document or a section
 
@@ -128,8 +134,11 @@ HTML5 offers semantic elements to define different parts of a web page
 
 `<aside>` Defines content aside from the content (like a sidebar)
 
-`<footer>` Defines a footer for a document or a section 
+`<footer>` Defines a footer for a document or a section
 
-## HTML references
-[W3Schools](https://www.w3schools.com/tags/default.asp)
-[Mozilla HTML reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+## HTML references and tutorials
+
+- [W3Schools](https://www.w3schools.com/tags/default.asp)
+- [Mozilla HTML reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [Freecodecamp responsive web design (includes CSS & HTML)](https://www.freecodecamp.org/learn/2022/responsive-web-design) This is an interactive tutorial where you code online.
+- [Mozilla learn HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
