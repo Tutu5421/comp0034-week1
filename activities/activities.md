@@ -148,7 +148,7 @@ What does your page look like now?
 
 To change the style of each of the elements on your page, you should apply specific Bootstrap styles to them also.
 
-For example, remove any height and width tags from your image and instead add [Bootstrap image styling]() e.g.
+For example, remove any height and width tags from your image and instead add [Bootstrap image styling](https://getbootstrap.com/docs/5.2/content/images/) e.g.
 
 ```html
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Iris_sanguinea.JPG" alt="Iris" class="img-fluid">
@@ -164,13 +164,17 @@ This activity aims to give you 'just enough' knowledge to get a basic Flask webp
 
 To complete this activity you will need to have a Python environment in which Flask has been installed (see setup at the start of this document).
 
-Create a Python file to launch the Flask app. Do not call it `flask.py` as this conflicts with Flask itself. `app.py` or the name of your app is a more typical name.
+### Basic app with a home page
 
-Add the following code. This creates an instalve of the Flask class which is our web app.
+Create a Python file to launch the Flask app. Do not call it `flask.py` as this conflicts with Flask itself. `app.py` or the name of your app, e.g. `hello.py` is a more typical name.
 
-The route decorator tells Flask what URL to trigger the function. In this case we want the URL for our homepage `index`.
+Add the following code section.
 
-When the function for the route is called, it will return HTML paragraph tag with the words 'hello world'.
+`app = Flask(__name__)` creates an instance of the Flask class which is our web app.
+
+`@app.route("/")` is a route decorator tells Flask when the URL '/' is requested; run the function `def index():`.
+
+When the function for the route is called, it will return a page with the HTML paragraph tag with the words 'Hello, World!'.
 
 ```python
 from flask import Flask
@@ -187,3 +191,77 @@ To run the app in VS Code, go to Terminal and type `flask --app run` where --app
 Note: if you saved your python file (e.g. `app.py`) in a directory other than the root of the project, you will need to set an envio e.g. `export FLASK_APP=hello`. Please refer to the documentation here as the syntax for mac and windows is different.
 
 To run the app in PyCharm, you should be able to run it using the green arrow run function from within the python file.
+
+You should see the server start. If it successfully starts your Flask app, the URL will be shown in the Terminal. You can open this URL in any browser. By default it will be [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+### A note on Python packages and modules
+
+[Python package and module](https://realpython.com/python-modules-packages/) is explained in more detail here. There is a folder called `flask_app` in the repository. This folder has a file called `__init__.py` in it which denotes the `flask_app` folder as a Python package. If there were no `__init__.py` then `app.py` would be a Python module rather than a package. The following shows a basic structure of Flask app as either a module or a package:
+
+A module:
+
+```text
+/application.py
+/static
+    /mystyles.css
+/templates
+    /hello.html
+```
+
+A package:
+
+```text
+/application
+    /__init__.py
+    /app.py
+    /static
+        /mystyles.css
+    /templates
+        /hello.html
+```
+
+### Create the homepage using an HTML template
+
+Flask uses templates to generate pages. The pages can contain HTML and a templating language called [Jinja](https://jinja.palletsprojects.com/en/3.1.x/). We will cover Jinja in a later week.
+
+In this part of the activity, create an HTML-only page template for the homepage.
+
+By default, Flask expects page templates to be in a sub-folder called `templates`.
+
+Create an HTML file called index.html in the templates directory of your Flask app. Add the overall HTML file structure, head and body. In the body add relevant tags with the content 'hello world'.
+
+Refer back to activity 1 for the basic structure of an HTML page.
+
+Now, modify the "/" route so that it generates a page using `index.html`. To do this, use the Flask function, [render_template()](https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates). You also need to add the relevant import.
+
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+```
+
+To see the change you will need to stop and then restart the Flask app.
+
+In VSCode Press CTRL+C to quit Flask.
+
+Run the app again as you did before in Terminal e.g. `flask --app flask_app/hello run`.
+
+### Add Bootstrap CSS styling to the homepage
+
+The [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/) introduction explains how to either use an online version of Bootstrap, or download and include the files in your project structure.
+
+If you download Bootstrap, you need to place it in the [static](https://flask.palletsprojects.com/en/2.2.x/quickstart/#static-files) folder. Unless you specify otherwise, Flask looks for static files such as CSS and JavaScript in a folder called `static` in a **package**; or in a folder at the same level if you create your Flask app in a **module**.
+
+Add the Bootstrap CSS to index.html
+
+You should now have a simple Flask app that includes the use of HTML and CSS.
+
+To see the changes you will need to stop and then restart the Flask app.
+
+In VSCode Press CTRL+C to quit Flask.
+
+Run the app again as you did before in Terminal e.g. `flask --app flask_app/hello run`.
