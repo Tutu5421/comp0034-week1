@@ -158,7 +158,14 @@ Open the page in Live Server and see what happens to the image when you make the
 
 ## Activity 4: Create a basic Flask app [45 mins]
 
-There are many freely available Flask tutorials; such at the one in the [Flask documentation](https://flask.palletsprojects.com/en/2.2.x/tutorial/) or the [VS Code Flask tutorial](https://code.visualstudio.com/docs/python/tutorial-flask).
+There are many freely available Flask tutorials; such as:
+
+- [Flask documentation tutorial](https://flask.palletsprojects.com/en/2.2.x/tutorial/)
+- [VS Code Flask tutorial](https://code.visualstudio.com/docs/python/tutorial-flask)
+- [PyCharm Flask tutorial](https://www.jetbrains.com/help/pycharm/creating-web-application-with-flask.html)
+- [Hackers and Slackers blog](https://hackersandslackers.com/your-first-flask-application/)
+- [Patrick Kennedy's blog](https://www.patricksoftwareblog.com/creating-a-simple-flask-web-application/)
+- [Miguel Grinberg's 'Flask mega tutorial' blog](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) - this goes well beyond the scope of this first activity!
 
 This activity aims to give you 'just enough' knowledge to get a basic Flask webpage that uses both HTML and Bootstrap CSS. It is adapted from '[A minimal application](https://flask.palletsprojects.com/en/2.2.x/quickstart/#a-minimal-application)' in the Flask documentation.
 

@@ -21,7 +21,7 @@ h1 {
 
 Web browsers apply CSS rules to a document.
 
-A CSS **rules** consist of:
+A CSS **rule** consist of:
 
 - A **selector**, which selects the element(s) you want to style
 
