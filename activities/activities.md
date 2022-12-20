@@ -118,7 +118,7 @@ td {
 }
 ```
 
-## Activity 3: Use bootstrap to make your page follow a responsive design
+## Activity 3: Use bootstrap to make your page follow a responsive design [30 mins]
 
 Read [responsive_intro.md](/activities/responsive_intro.md)
 
@@ -156,7 +156,7 @@ For example, remove any height and width tags from your image and instead add [B
 
 Open the page in Live Server and see what happens to the image when you make the browser smaller and larger. Remove the Bootstrap class property to see the non-responsive version of the image.
 
-## Activity 4: Create a basic Flask app
+## Activity 4: Create a basic Flask app [30 mins]
 
 There are many freely available Flask tutorials; such at the one in the [Flask documentation](https://flask.palletsprojects.com/en/2.2.x/tutorial/) or the [VS Code Flask tutorial](https://code.visualstudio.com/docs/python/tutorial-flask).
 
