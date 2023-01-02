@@ -169,104 +169,90 @@ There are many freely available Dash tutorials; such as:
 
 To complete this activity you will need to have a Python environment in which Dash and pandas has been installed (see setup at the start of this document).
 
-### Basic app with a home page
+### Basic Dash app with HTML
 
 Create a Python file to launch the Dash app. Do not call it `dash.py` as this conflicts with Flask itself. Most tutorials suggest `app.py`, though you could call it the name of your app, e.g. `hello_world.py`.
 
 Add the following code section.
 
-`app = Dash(__name__)` creates an instance of the Dash class which is our web app.
-
-`@app.route("/")` is a route decorator tells Flask when the URL '/' is requested; run the function `def index():`.
-
 When the app is run, it will return a page with the HTML paragraph tag with the words 'Hello, World!'.
 
-```python
-from flask import Flask
+The sections are explained in the Dash tutorial as follows:
 
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return "<p>Hello, World!</p>"
-```
-
-To run the app in VS Code, go to Terminal and type `flask --app run` where --app tells Flask where you app code is. If this is in a directory, e.g. in the `flask_app` directory then you would type `flask --app flask_app/app run`.
-
-Note: if you saved your python file (e.g. `app.py`) in a directory other than the root of the project, you will need to set an envio e.g. `export FLASK_APP=hello`. Please refer to the documentation here as the syntax for mac and windows is different.
-
-To run the app in PyCharm, you should be able to run it using the green arrow run function from within the python file.
-
-You should see the server start. If it successfully starts your Flask app, the URL will be shown in the Terminal. You can open this URL in any browser. By default it will be [http://127.0.0.1:5000](http://127.0.0.1:5000)
-
-### A note on Python packages and modules
-
-[Python package and module](https://realpython.com/python-modules-packages/) is explained in more detail here. There is a folder called `flask_app` in the repository. This folder has a file called `__init__.py` in it which denotes the `flask_app` folder as a Python package. If there were no `__init__.py` then `app.py` would be a Python module rather than a package. The following shows a basic structure of Flask app as either a module or a package:
-
-A module:
-
-```text
-/application.py
-/static
-    /mystyles.css
-/templates
-    /hello.html
-```
-
-A package:
-
-```text
-/application
-    /__init__.py
-    /app.py
-    /static
-        /mystyles.css
-    /templates
-        /hello.html
-```
-
-### Create the homepage using an HTML template
-
-Flask uses templates to generate pages. The pages can contain HTML and a templating language called [Jinja](https://jinja.palletsprojects.com/en/3.1.x/). We will cover Jinja in a later week.
-
-In this part of the activity, create an HTML-only page template for the homepage.
-
-By default, Flask expects page templates to be in a sub-folder called `templates`.
-
-Create an HTML file called index.html in the templates directory of your Flask app. Add the overall HTML file structure, head and body. In the body add relevant tags with the content 'hello world'.
-
-Refer back to activity 1 for the basic structure of an HTML page.
-
-Now, modify the "/" route so that it generates a page using `index.html`. To do this, use the Flask function, [render_template()](https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates). You also need to add the relevant import.
+1. The layout is composed of a tree of "components" such as html.Div and dcc.Graph.
+2. The Dash HTML Components module (dash.html) has a component for every HTML tag. The html.H1(children='Hello Dash') component generates a `<h1>Hello Dash</h1>` HTML element in your app.
+3. Not all components are pure HTML. The Dash Core Components module (dash.dcc) contains higher-level components that are interactive and are generated with JavaScript, HTML, and CSS through the React.js library.
+4. Each component is described entirely through keyword attributes. Dash is declarative: you will primarily describe your app through these attributes.
+5. The children property is special. By convention, it's always the first attribute which means that you can omit it: html.H1(children='Hello Dash') is the same as html.H1('Hello Dash'). It can contain a string, a number, a single component, or a list of components.
 
 ```python
-from flask import Flask, render_template
+# Import the required packages
+from dash import Dash, html
 
-app = Flask(__name__)
+# Creates the Dash app
+app = Dash(__name__)
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+# Creates the HTML page layout and adds it to the app. This uses dash.html package to add HTML components.
+app.layout = html.Div(
+    # The first element is the html.Div. The 'child' elements of the Div are those elements that are inside the Div. In this case a H1 heading.
+    children=[
+        # The 'children' of the H1 element in this case is the content to be displayed. You can also ommit the keyword as shown in the P example.
+        html.H1(children='Hello, World!'),
+        html.P('My first app'),
+        ]
+)
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
+
 ```
 
-To see the change you will need to stop and then restart the Flask app.
+To run the app in VS Code, go to Terminal, (assuming you are in the same folder as `app.py`) enter `python app.py`.
 
-In VSCode Press CTRL+C to quit Flask.
+You should see the server start. If it successfully starts your Dash app, the URL will be shown in the Terminal. You can open this URL in any browser. By default it will be [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
-Run the app again as you did before in Terminal e.g. `flask --app flask_app/hello run`.
+### Add Bootstrap CSS styling
 
-### Add Bootstrap CSS styling to the homepage
+For this activity, use the Bootstrap reference in [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/) for how to add bootstrap to your Dash app and using the Bootstrap components. Do not use the main Bootstrap documentation as the syntax used is different.
 
-The [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/) introduction explains how to either use an online version of Bootstrap, or download and include the files in your project structure.
+You first need to install the package: `pip install dash-bootstrap-components`
 
-If you download Bootstrap, you need to place it in the [static](https://flask.palletsprojects.com/en/2.2.x/quickstart/#static-files) folder. Unless you specify otherwise, Flask looks for static files such as CSS and JavaScript in a folder called `static` in a **package**; or in a folder at the same level if you create your Flask app in a **module**.
+You can now add the import to your code:
 
-Add the Bootstrap CSS to index.html
+```python
+import dash_bootstrap_components as dbc
+```
 
-You should now have a simple Flask app that includes the use of HTML and CSS.
+Dash bootstrap CSS (or any CSS) is passed as a parameter to the Dash app when you create it, e.g.:
 
-To see the changes you will need to stop and then restart the Flask app.
+```python
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+```
 
-In VSCode Press CTRL+C to quit Flask.
+Bootstrap requires that you create the layout in a container. You need to change the current Div surrounding the app layout section to a dbc.Comtainer, e.g.:
 
-Run the app again as you did before in Terminal e.g. `flask --app flask_app/hello run`.
+```python
+app.layout = dbc.Container(
+    # HTML layout elements here
+)
+```
+
+To make the layout responsive, Bootstrap expects the viewport to be set in the HTML head. You may have noticed that the layout in Bootstrap only lets you set tags in the page body. To set the head tags you need to pass these as a parameter when you create the dash app. This is [documented here](https://dash-bootstrap-components.opensource.faculty.ai/docs/faq/) and can be applied to your simple app as follows:
+
+```python
+app = dash.Dash(
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+    ],
+)
+```
+
+When you save the changes, the Dash app automatically tries to restart and apply them. If not, you can stop and then restart the Dash app in VSCode by:
+
+- In Terminal, press the CTRL + C keys together to quit Dash.
+- Run the app again as you did before in Terminal e.g. `python app.py`.
+
+## Examples
+- [Dash app examples]()
+- [Dash bootstrap components examples](https://dash-bootstrap-components.opensource.faculty.ai/examples/)
