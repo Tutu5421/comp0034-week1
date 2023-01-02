@@ -265,6 +265,27 @@ app.layout = dbc.Container(
 )
 ```
 
+## Directory structure for a Dash app
+
+A directory structure for a Dash app might be:
+
+```
+dash_app_name/
+  /assets/  # An optional directory that contains CSS stylesheets and images. Dash will automatically serve all of the files that are included in this folder.
+      app.css  
+  /data/  # An optional directory that contains the data files (unless this is accessed via an API or database server).
+      data.csv
+  dash_app.py  # Contains your Dash app code and code to run the server. Sometimes named app.py or dashboard.py.
+  .gitignore  # The files and folders to be ignored in git.
+  requirements.txt  # The app's python dependencies.
+  /.venv/   # Python venv with the dependencies installed.
+
+```
+
+This is not the only structure you will see. For example, Dash runs as a single page app, you may however want a multi-page app in which case you would have a sub-folder for each dash app and extract the function to run the server to
+a separate file, typically run.py.
+
+
 ## Examples
 
 - [Dash app examples in GitHub](https://github.com/plotly/dash-sample-apps)
