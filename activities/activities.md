@@ -9,7 +9,7 @@ You may need to alter your IDE (VS Code) to support HTML and CSS. Please check t
 
 To view HTML pages in a browser from VS Code requires an extension such as [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to be installed. Once you have installed Live Server, if you right click on an HTML file in VS Code explorer then you can select an option to 'open with Live Server'. This opens the file in a browser.
 
-You will need to a Python environment for the final activity only e.g create and activate a venv. Install Flask in the environment, e.g. run `pip install flask` or `python -m pip install flask` in the Terminal in VS Code or PyCharm.
+You will need to a Python environment for the final activity only e.g create and activate a venv. Install pandas and Dash in the environment, e.g. run `pip3 install dash pandas` or `python -m pip3 install dash pandas` in the Terminal in VS Code or PyCharm.
 
 ## Activity 1: Create an html document [30 mins]
 
@@ -156,32 +156,30 @@ For example, remove any height and width tags from your image and instead add [B
 
 Open the page in Live Server and see what happens to the image when you make the browser smaller and larger. Remove the Bootstrap class property to see the non-responsive version of the image.
 
-## Activity 4: Create a basic Flask app [45 mins]
+## Activity 4: Create a basic Dash app [45 mins]
 
-There are many freely available Flask tutorials; such as:
+This activity aims to give you 'just enough' knowledge to get a basic Dash webpage that uses both HTML and Bootstrap CSS. It is adapted from the [Dash tutorial](https://dash.plotly.com/installation).
 
-- [Flask documentation tutorial](https://flask.palletsprojects.com/en/2.2.x/tutorial/)
-- [VS Code Flask tutorial](https://code.visualstudio.com/docs/python/tutorial-flask)
-- [PyCharm Flask tutorial](https://www.jetbrains.com/help/pycharm/creating-web-application-with-flask.html)
-- [Hackers and Slackers blog](https://hackersandslackers.com/your-first-flask-application/)
-- [Patrick Kennedy's blog](https://www.patricksoftwareblog.com/creating-a-simple-flask-web-application/)
-- [Miguel Grinberg's 'Flask mega tutorial' blog](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) - this goes well beyond the scope of this first activity!
+There are many freely available Dash tutorials; such as:
 
-This activity aims to give you 'just enough' knowledge to get a basic Flask webpage that uses both HTML and Bootstrap CSS. It is adapted from '[A minimal application](https://flask.palletsprojects.com/en/2.2.x/quickstart/#a-minimal-application)' in the Flask documentation.
+- [Dash tutorial](https://dash.plotly.com/installation)
+- [Dash tutorial, Charming Data](https://www.youtube.com/watch?v=7m0Bq1EGPPg) - this is part of a larger series of video tutorials on Dash. Well worth watching IMHO.
+- [Dash tutorial, Real Python](https://realpython.com/python-dash/)
+- [Dash tutorial, Datacamp](https://www.datacamp.com/tutorial/learn-build-dash-python)
 
-To complete this activity you will need to have a Python environment in which Flask has been installed (see setup at the start of this document).
+To complete this activity you will need to have a Python environment in which Dash and pandas has been installed (see setup at the start of this document).
 
 ### Basic app with a home page
 
-Create a Python file to launch the Flask app. Do not call it `flask.py` as this conflicts with Flask itself. `app.py` or the name of your app, e.g. `hello.py` is a more typical name.
+Create a Python file to launch the Dash app. Do not call it `dash.py` as this conflicts with Flask itself. Most tutorials suggest `app.py`, though you could call it the name of your app, e.g. `hello_world.py`.
 
 Add the following code section.
 
-`app = Flask(__name__)` creates an instance of the Flask class which is our web app.
+`app = Dash(__name__)` creates an instance of the Dash class which is our web app.
 
 `@app.route("/")` is a route decorator tells Flask when the URL '/' is requested; run the function `def index():`.
 
-When the function for the route is called, it will return a page with the HTML paragraph tag with the words 'Hello, World!'.
+When the app is run, it will return a page with the HTML paragraph tag with the words 'Hello, World!'.
 
 ```python
 from flask import Flask
