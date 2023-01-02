@@ -156,7 +156,7 @@ For example, remove any height and width tags from your image and instead add [B
 
 Open the page in Live Server and see what happens to the image when you make the browser smaller and larger. Remove the Bootstrap class property to see the non-responsive version of the image.
 
-## Activity 4: Create a basic Dash app [45 mins]
+## Activity 4: Create a basic Dash app with HTML and Bootstrap CSS styling [30 mins]
 
 This activity aims to give you 'just enough' knowledge to get a basic Dash webpage that uses both HTML and Bootstrap CSS. It is adapted from the [Dash tutorial](https://dash.plotly.com/installation).
 
@@ -211,9 +211,11 @@ To run the app in VS Code, go to Terminal, (assuming you are in the same folder 
 
 You should see the server start. If it successfully starts your Dash app, the URL will be shown in the Terminal. You can open this URL in any browser. By default it will be [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
-### Add Bootstrap CSS styling
+### Basic Dash app with Bootstrap CSS styling (using dash-bootstrap-components)
 
-For this activity, use the Bootstrap reference in [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/) for how to add bootstrap to your Dash app and using the Bootstrap components. Do not use the main Bootstrap documentation as the syntax used is different.
+For this activity, use the Bootstrap reference in [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/) for how to add bootstrap to your Dash app and using the Bootstrap components. 
+
+You may also need to refer to the [main Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to identify the classes needed to style other elements.
 
 You first need to install the package: `pip install dash-bootstrap-components`
 
@@ -252,6 +254,16 @@ When you save the changes, the Dash app automatically tries to restart and apply
 
 - In Terminal, press the CTRL + C keys together to quit Dash.
 - Run the app again as you did before in Terminal e.g. `python app.py`.
+
+To add a specific bootstrap class to an HTML element, you use the `className=` parameter for the element. For example, apply a [display heading bootstrap style](https://getbootstrap.com/docs/5.3/content/typography/#display-headings) to the H1 tag:
+
+```python
+app.layout = dbc.Container(
+    children=[
+        html.H1(children='Hello, World!', className="display-1"),
+    ]
+)
+```
 
 ## Examples
 
