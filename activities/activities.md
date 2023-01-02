@@ -254,5 +254,6 @@ When you save the changes, the Dash app automatically tries to restart and apply
 - Run the app again as you did before in Terminal e.g. `python app.py`.
 
 ## Examples
-- [Dash app examples]()
+
+- [Dash app examples in GitHub](https://github.com/plotly/dash-sample-apps)
 - [Dash bootstrap components examples](https://dash-bootstrap-components.opensource.faculty.ai/examples/)
